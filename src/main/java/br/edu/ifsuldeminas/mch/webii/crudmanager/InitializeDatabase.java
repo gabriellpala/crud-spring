@@ -4,14 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import br.edu.ifsuldeminas.mch.webii.crudmanager.dao.AddressRepository;
+import br.edu.ifsuldeminas.mch.webii.crudmanager.dao.CidadeRepository;
+import br.edu.ifsuldeminas.mch.webii.crudmanager.dao.UserRepository;
+import br.edu.ifsuldeminas.mch.webii.crudmanager.dao.VeiculoRepository;
 import br.edu.ifsuldeminas.mch.webii.crudmanager.model.Address;
 import br.edu.ifsuldeminas.mch.webii.crudmanager.model.Cidade;
 import br.edu.ifsuldeminas.mch.webii.crudmanager.model.User;
 import br.edu.ifsuldeminas.mch.webii.crudmanager.model.Veiculo;
-import br.edu.ifsuldeminas.mch.webii.dao.AddressRepository;
-import br.edu.ifsuldeminas.mch.webii.dao.CidadeRepository;
-import br.edu.ifsuldeminas.mch.webii.dao.UserRepository;
-import br.edu.ifsuldeminas.mch.webii.dao.VeiculoRepository;
 
 @Component
 public class InitializeDatabase implements CommandLineRunner{

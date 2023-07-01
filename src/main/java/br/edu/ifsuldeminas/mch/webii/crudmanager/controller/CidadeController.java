@@ -19,8 +19,13 @@ import br.edu.ifsuldeminas.mch.webii.crudmanager.model.Cidade;
 
 @Controller
 public class CidadeController {
+	
+	//recuperando repositorio cidade(interface)
+	
     @Autowired
     private CidadeRepository cidadeRepo;
+    
+    // inicializando a lista de cidades
     
     @GetMapping("/cidades")
     public String cidades(Model model) {
@@ -30,11 +35,17 @@ public class CidadeController {
         
         return "listar_cidade";
     }
+    
+    // listando formulario cidades (add)
+    
     @GetMapping("/cidades/form")
     public String cidadeForm(@ModelAttribute("cidade")Cidade cidade) {
         
         return "cidade_form";
     }
+    
+    // botao salvar add cidades
+    
     @PostMapping("cidades/new")
     public String userNew(@Valid @ModelAttribute("cidade")Cidade cidade, BindingResult br) {
         
@@ -42,14 +53,23 @@ public class CidadeController {
             return "listar_cidade";
         }
         
+     // salvando repositorio cidades
+        
         cidadeRepo.save(cidade);
 
         
         return "redirect:/cidades";
     }
+    
+    
+    
+    // botão alterar cidade
+    
     @GetMapping("/cidades/{id}")
-    public String cidadeForm(@PathVariable("id") Integer id, Model model) {
+    public String cidadeUpdate(@PathVariable("id") Integer id, Model model) {
         
+    	// se estiver vazio = invalido
+    	
         Optional<Cidade> cidadeOpt = cidadeRepo.findById(id);
         if(cidadeOpt.isEmpty()) {
             throw new IllegalArgumentException("Usuário inválido!");
@@ -62,6 +82,8 @@ public class CidadeController {
     @GetMapping("/cidades/delete/{id}")
     public String cidadeDelete(@PathVariable("id") Integer id) {
         
+    	// deleta usuario
+    	
         Optional<Cidade> cidadeOpt = cidadeRepo.findById(id);
         
         if(cidadeOpt.isEmpty())

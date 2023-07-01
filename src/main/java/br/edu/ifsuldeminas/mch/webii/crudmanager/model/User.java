@@ -17,6 +17,8 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
+	// validação que o nome não pode ser vazio
+	
 	@NotBlank(message = "Nome não pode ser vazio")
 	private String name;
 	
@@ -26,6 +28,9 @@ public class User {
 	
 	@NotBlank(message = "Gênero não pode ser vazio")
 	private String gender;
+	
+	
+	//relacionamento 1 p/ 1
 	
 	@OneToOne
 	@Valid

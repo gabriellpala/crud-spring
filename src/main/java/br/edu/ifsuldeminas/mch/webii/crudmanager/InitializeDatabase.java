@@ -16,6 +16,8 @@ import br.edu.ifsuldeminas.mch.webii.crudmanager.model.Veiculo;
 @Component
 public class InitializeDatabase implements CommandLineRunner{
 	
+	// injeção de dependencia 
+	
 	@Autowired
 	private UserRepository uRepo;
 	
@@ -27,6 +29,8 @@ public class InitializeDatabase implements CommandLineRunner{
 	
 	@Autowired
 	private VeiculoRepository vRepo;
+	
+	// setando atributos
 	
 	@Override
 	public void run(String... args) throws Exception {
